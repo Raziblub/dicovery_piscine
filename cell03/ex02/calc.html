@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice Basique</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculator {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="text"], select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+    <script>
+        function calculate() {
+            const leftOperand = document.getElementById('leftOperand').value;
+            const operator = document.getElementById('operator').value;
+            const rightOperand = document.getElementById('rightOperand').value;
+
+            if (!isPositiveInteger(leftOperand) || !isPositiveInteger(rightOperand)) {
+                alert('Erreur : Valeurs invalides !');
+                return;
+            }
+
+            let result;
+            const leftNum = parseInt(leftOperand, 10);
+            const rightNum = parseInt(rightOperand, 10);
+
+            switch (operator) {
+                case '+':
+                    result = leftNum + rightNum;
+                    break;
+                case '-':
+                    result = leftNum - rightNum;
+                    break;
+                case '*':
+                    result = leftNum * rightNum;
+                    break;
+                case '/':
+                    if (rightNum === 0) {
+                        alert("Impossible de diviser par zéro !");
+                        return;
+                    }
+                    result = leftNum / rightNum;
+                    break;
+                case '%':
+                    if (rightNum === 0) {
+                        alert("Impossible de diviser par zéro !");
+                        return;
+                    }
+                    result = leftNum % rightNum;
+                    break;
+                default:
+                    alert('Erreur : Opérateur invalide !');
+                    return;
+            }
+
+            alert(`Le résultat est : ${result}`);
+            console.log(result);
+        }
+
+        function isPositiveInteger(value) {
+            const number = parseInt(value, 10);
+            return !isNaN(number) && number >= 0;
+        }
+
+        setInterval(() => {
+            alert('Veuillez, utilisez-moi !');
+        }, 30000);
+    </script>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculatrice</h1>
+        <form onsubmit="event.preventDefault(); calculate();">
+            <input type="text" id="leftOperand" placeholder="Membre gauche" required>
+            <select id="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+            <input type="text" id="rightOperand" placeholder="Membre droit" required>
+            <input type="submit" value="Essaye-moi !">
+        </form>
+    </div>
+</body>
+</html>

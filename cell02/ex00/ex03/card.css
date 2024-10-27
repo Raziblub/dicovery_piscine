@@ -1,0 +1,65 @@
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #ffffff;
+    background-position: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.carte-profil {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    margin: auto;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1), 0.1;
+}
+
+.photo-profil {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.info-profil {
+    margin-bottom: 15px;
+}
+
+.login {
+    font-weight: bold;
+}
+
+.descriptif {
+    color: rgb(114, 110, 110);
+}
+
+.reseaux-sociaux {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.icone-reseau {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+}
+
+.contact-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-button:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champ de texte avec options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .options {
+            display: none;
+            position: absolute;
+            background-color: #312a2a;
+            border: 1px solid #ccc;
+            padding: 10px;
+            z-index: 1;
+        }
+        .text-field {
+            position: relative;
+            display: inline-block;
+        }
+        .text-field:hover .options {
+            display: block;
+        }
+        .options a {
+            display: block;
+            color: rgb(239, 239, 248);
+            text-decoration: none;
+            padding: 5px 0;
+        }
+        .options a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="text-field">
+    <input type="text" placeholder="Passez la souris ici">
+    <div class="options">
+        <a href="#option1">Option 1</a>
+        <a href="#option2">Option 2</a>
+        <a href="#option3">Option 3</a>
+    </div>
+</div>
+
+</body>
+</html>

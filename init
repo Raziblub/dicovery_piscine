@@ -159,14 +159,8 @@
 
 	14. Quel est le fichier contenant les entrées locales DNS ?
 
- Le fichier contenant les entrées locales DNS sur la plupart des systèmes Unix/Linux est /etc/hosts.
- Ce fichier joue un rôle essentiel dans la résolution des noms de domaine en associant directement des adresses IP à des noms d’hôtes, sans passer par un serveur DNS externe.
- Lorsqu’un nom est recherché, le système consulte d’abord ce fichier avant d’interroger les serveurs DNS, ce qui permet d’avoir des résolutions locales rapides et personnalisées.
- Par exemple, dans un environnement Ubuntu typique, le fichier /etc/hosts contient des entrées pour localhost (127.0.0.1) ainsi que pour le nom de la machine locale,
- associée à une adresse IP locale (comme 127.0.1.1). Cette méthode est particulièrement utile pour tester des configurations réseau, accéder à des machines du réseau local via des noms simples,
- ou forcer certains noms à pointer vers des IP spécifiques. De plus, la priorité donnée à ce fichier est confirmée par la configuration dans /etc/nsswitch.conf,
- qui indique que la résolution DNS commence par les fichiers locaux (files) avant de consulter les serveurs DNS (dns). Ainsi, le fichier /etc/hosts est la base de la résolution DNS locale,
- garantissant un contrôle direct et immédiat des correspondances nom-IP sur la machine.
+	Le fichier `/etc/hosts` associe localement des noms d’hôtes à des IP. Il est consulté avant les serveurs DNS, utile pour tester ou forcer des résolutions réseau.
+
 
 
  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  
@@ -366,7 +360,7 @@
 
 	17. Trouvez une commande qui, en parallèle de la session graphique, permet de se connecter en ssh sur la machine
 
-	input : ssh utilisateur@adresse_ip
+	input : ssh maxence@127.0.0.1
  
 
 
@@ -383,8 +377,6 @@
 
 
 
-dpkg --get-selections
-
  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  
 |\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\
 \|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________|
@@ -392,7 +384,6 @@ dpkg --get-selections
 	19. Listez les services qui se lancent automatiquement lorsque la machine boot et indiquez le nom donné à ce type de service
 
 	input : systemctl list-unit-files --type=service | grep enabled
-
 
 
  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  
@@ -404,7 +395,6 @@ dpkg --get-selections
 	input : cut -d: -f1 /etc/passwd
 
 
-
  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  
 |\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\
 \|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________|
@@ -413,17 +403,13 @@ dpkg --get-selections
 
 	input : awk -F: '$3 >= 1000 { print $1 }' /etc/passwd
 
-
-
-
  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  
 |\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\
 \|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________|
 
 	22. Quelle commande permet d’ajouter un utilisateur local supplémentaire ?
 
-	input : sudo adduser nom_utilisateur
-
+	input : sudo adduser maxence
 
  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  
 |\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\
@@ -431,11 +417,9 @@ dpkg --get-selections
 
 	23. Expliquez comment se connecter en tant que ce nouvelle utilisateur. (En session graphique et en session ssh)
 
-	input : ssh nom_utilisateur@adresse_ip
+	input : ssh maxence@127.0.0.1
 
- 
-  
- ___________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  
+ _____________ ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  
 |\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\
 \|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________|
 
@@ -443,18 +427,9 @@ dpkg --get-selections
 
 	input : dpkg --get-selections
 
-
-
-
-
-
-
-
-
-
-
-
-
+ _____________ ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  
+|\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\\____________\
+\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________\|____________|
 
 
 

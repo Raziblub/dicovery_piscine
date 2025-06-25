@@ -159,7 +159,14 @@
 
 	14. Quel est le fichier contenant les entrées locales DNS ?
 
- Le fichier contenant les entrées locales DNS sur la plupart des systèmes Unix/Linux est /etc/hosts. Ce fichier joue un rôle essentiel dans la résolution des noms de domaine en associant directement des adresses IP à des noms d’hôtes, sans passer par un serveur DNS externe. Lorsqu’un nom est recherché, le système consulte d’abord ce fichier avant d’interroger les serveurs DNS, ce qui permet d’avoir des résolutions locales rapides et personnalisées. Par exemple, dans un environnement Ubuntu typique, le fichier /etc/hosts contient des entrées pour localhost (127.0.0.1) ainsi que pour le nom de la machine locale, associée à une adresse IP locale (comme 127.0.1.1). Cette méthode est particulièrement utile pour tester des configurations réseau, accéder à des machines du réseau local via des noms simples, ou forcer certains noms à pointer vers des IP spécifiques. De plus, la priorité donnée à ce fichier est confirmée par la configuration dans /etc/nsswitch.conf, qui indique que la résolution DNS commence par les fichiers locaux (files) avant de consulter les serveurs DNS (dns). Ainsi, le fichier /etc/hosts est la base de la résolution DNS locale, garantissant un contrôle direct et immédiat des correspondances nom-IP sur la machine.
+ Le fichier contenant les entrées locales DNS sur la plupart des systèmes Unix/Linux est /etc/hosts.
+ Ce fichier joue un rôle essentiel dans la résolution des noms de domaine en associant directement des adresses IP à des noms d’hôtes, sans passer par un serveur DNS externe.
+ Lorsqu’un nom est recherché, le système consulte d’abord ce fichier avant d’interroger les serveurs DNS, ce qui permet d’avoir des résolutions locales rapides et personnalisées.
+ Par exemple, dans un environnement Ubuntu typique, le fichier /etc/hosts contient des entrées pour localhost (127.0.0.1) ainsi que pour le nom de la machine locale,
+ associée à une adresse IP locale (comme 127.0.1.1). Cette méthode est particulièrement utile pour tester des configurations réseau, accéder à des machines du réseau local via des noms simples,
+ ou forcer certains noms à pointer vers des IP spécifiques. De plus, la priorité donnée à ce fichier est confirmée par la configuration dans /etc/nsswitch.conf,
+ qui indique que la résolution DNS commence par les fichiers locaux (files) avant de consulter les serveurs DNS (dns). Ainsi, le fichier /etc/hosts est la base de la résolution DNS locale,
+ garantissant un contrôle direct et immédiat des correspondances nom-IP sur la machine.
 
 
  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  ____________  
